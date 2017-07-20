@@ -9,7 +9,6 @@ import static org.mockito.BDDMockito.given;
 import static org.mockito.Matchers.any;
 import static org.mockito.Matchers.eq;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -68,7 +67,6 @@ public class RecommendationsControllerTest {
 				.willReturn(new ResponseEntity<Member>(new Member("kore", 16), HttpStatus.OK));
 
 		this.mvc.perform(MockMvcRequestBuilders.post("/api/recommendations/kore").accept(MediaType.APPLICATION_JSON))
-				.andExpect(status().isOk())
 				.andExpect(content().string(equalTo("[{\"title\":\"lion king\"},{\"title\":\"frozen\"}]")));
 	}
 
@@ -80,7 +78,6 @@ public class RecommendationsControllerTest {
 				.willReturn(new ResponseEntity<Member>(new Member("sore", 17), HttpStatus.OK));
 
 		this.mvc.perform(MockMvcRequestBuilders.post("/api/recommendations/sore").accept(MediaType.APPLICATION_JSON))
-				.andExpect(status().isOk())
 				.andExpect(content().string(equalTo("[{\"title\":\"shawshank redemption\"},{\"title\":\"spring\"}]")));
 	}
 }
