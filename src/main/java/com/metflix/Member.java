@@ -6,6 +6,12 @@ public class Member {
 	private int    age;
 
 
+	/**
+	 * API 呼び出しのために必要。
+	 */
+	public Member() {
+	}
+
 	public Member(String user, int age) {
 		this.user = user;
 		this.age  = age;
