@@ -1,4 +1,3 @@
-
 # recommendations
 This repository was cloned from https://github.com/metflix/recommendations with following extensions:
 - Divided components for easily understand each responsibility
