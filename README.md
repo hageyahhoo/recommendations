@@ -27,7 +27,19 @@ Run `./mvnw clean build`
 
 
 ## How to run this service as a Docker container
-1. Run `docker build -t recommendations:0.0.1 .`
-2. Run `docker run -d -p 3333:3333 recommendations:0.0.1`
-3. Access to `http://localhost:3333/api/recommendations/making`
-4. Run `docker stop <container_id>`
+
+### 1) Setup
+1. Run `docker network create msa`
+2. Run `docker build -t recommendations:0.0.1 .`
+
+<br>
+
+### 2) Start
+1. Run `docker run --name recommendations --network msa -d -p 3333:3333 recommendations:0.0.1`
+2. Access to `http://localhost:3333/api/recommendations/making`
+
+<br>
+
+### 3) Stop
+1. Run `docker stop <container_id>`
+2. Run `docker rm recommendations`
